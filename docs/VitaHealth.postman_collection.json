@@ -1,0 +1,488 @@
+{
+  "info": {
+    "name": "VitaHealth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Ejecute primero \"Crear una cuenta\" e \"Iniciar sesión\": el token y los ids se guardan solos."
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "actividad",
+      "value": ""
+    },
+    {
+      "key": "comida",
+      "value": ""
+    },
+    {
+      "key": "sueno",
+      "value": ""
+    },
+    {
+      "key": "habito",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Generales",
+      "item": [
+        {
+          "name": "Consultar el estado de la API",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [],
+            "url": "{{baseUrl}}/salud"
+          }
+        },
+        {
+          "name": "Consultar los valores permitidos",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [],
+            "url": "{{baseUrl}}/catalogos"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cuentas y sesiones",
+      "item": [
+        {
+          "name": "Crear una cuenta",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/auth/registro",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Ingri Daniela\",\n  \"apellido\": \"Rojas Sánchez\",\n  \"correo\": \"daniela@ejemplo.com\",\n  \"contrasena\": \"Salud2026\",\n  \"confirmacion\": \"Salud2026\",\n  \"aceptaTerminos\": true\n}"
+            }
+          }
+        },
+        {
+          "name": "Iniciar sesión",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('token', pm.response.json().datos.token);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"correo\": \"daniela@ejemplo.com\",\n  \"contrasena\": \"Salud2026\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Cerrar sesión",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/auth/logout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfil",
+      "item": [
+        {
+          "name": "Consultar el perfil y el IMC",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/perfil"
+          }
+        },
+        {
+          "name": "Actualizar el perfil",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/perfil",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaNacimiento\": \"2000-05-20\",\n  \"pesoKg\": 62.5,\n  \"alturaCm\": 165,\n  \"objetivo\": \"Mejorar mi condición física\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Actividad física",
+      "item": [
+        {
+          "name": "Consultar el catálogo de actividades",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/actividades"
+          }
+        },
+        {
+          "name": "Consultar el historial de actividad",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/registros-actividad"
+          }
+        },
+        {
+          "name": "Registrar una actividad",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('actividad', pm.response.json().datos.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/registros-actividad",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actividadId\": 1,\n  \"duracionMinutos\": 30,\n  \"fecha\": \"2026-11-04\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar un registro de actividad",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/registros-actividad/{{actividad}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hidratación",
+      "item": [
+        {
+          "name": "Consultar el agua de un día",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/hidratacion"
+          }
+        },
+        {
+          "name": "Registrar agua",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/hidratacion",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cantidadMl\": 500\n}"
+            }
+          }
+        },
+        {
+          "name": "Deshacer el último registro de agua",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/hidratacion/ultimo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nutrición",
+      "item": [
+        {
+          "name": "Consultar las comidas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/comidas"
+          }
+        },
+        {
+          "name": "Registrar una comida",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('comida', pm.response.json().datos.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/comidas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"almuerzo\",\n  \"descripcion\": \"Arroz con pollo y ensalada\",\n  \"calorias\": 650\n}"
+            }
+          }
+        },
+        {
+          "name": "Actualizar una comida",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/comidas/{{comida}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"calorias\": 600\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar una comida",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/comidas/{{comida}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sueño",
+      "item": [
+        {
+          "name": "Consultar el sueño",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/sueno"
+          }
+        },
+        {
+          "name": "Registrar el sueño de un día",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('sueno', pm.response.json().datos.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/sueno",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"horas\": 7.5,\n  \"calidad\": \"buena\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar un registro de sueño",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/sueno/{{sueno}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hábitos",
+      "item": [
+        {
+          "name": "Consultar los hábitos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/habitos"
+          }
+        },
+        {
+          "name": "Registrar un hábito",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('habito', pm.response.json().datos.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/habitos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Meditar\",\n  \"categoria\": \"bienestar\",\n  \"frecuencia\": \"diaria\",\n  \"meta\": 10,\n  \"unidad\": \"minutos\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Consultar un hábito",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/habitos/{{habito}}"
+          }
+        },
+        {
+          "name": "Actualizar un hábito",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/habitos/{{habito}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meta\": 15\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar un hábito",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/habitos/{{habito}}"
+          }
+        },
+        {
+          "name": "Registrar el cumplimiento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{baseUrl}}/habitos/{{habito}}/registros",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cantidad\": 15\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Estadísticas",
+      "item": [
+        {
+          "name": "Consultar el resumen de un día",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/estadisticas/dia"
+          }
+        },
+        {
+          "name": "Consultar los últimos 7 días",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/estadisticas/semana"
+          }
+        }
+      ]
+    }
+  ]
+}
