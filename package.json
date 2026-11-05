@@ -1,0 +1,17 @@
+{
+  "name": "vitahealth-api",
+  "version": "1.0.0",
+  "description": "VitaHealth - API REST de hábitos saludables (GA7-220501096-AA5-EV03).",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "docs": "node scripts/generar-docs.js"
+  },
+  "keywords": ["vitahealth", "api", "rest", "habitos", "salud", "sena", "adso"],
+  "author": "Ingri Daniela Rojas Sánchez <grupochicas662@gmail.com>",
+  "contributors": ["Luisa Fernanda Betancur Idarraga", "Luna Michell Montealegre"],
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
