@@ -174,7 +174,7 @@ POST /api/v1/auth/registro
 {
   "ok": true,
   "datos": {
-    "id": "7a102d14-add1-49a6-8972-34fbefe56330",
+    "id": "87f9e082-843b-40ea-8bc4-4df30f588115",
     "nombre": "Ingri Daniela",
     "apellido": "Rojas Sánchez",
     "correo": "daniela@ejemplo.com",
@@ -226,7 +226,7 @@ POST /api/v1/auth/login
     "expiraEn": 7200,
     "tipo": "Bearer",
     "usuario": {
-      "id": "7a102d14-add1-49a6-8972-34fbefe56330",
+      "id": "87f9e082-843b-40ea-8bc4-4df30f588115",
       "nombre": "Ingri Daniela",
       "apellido": "Rojas Sánchez",
       "correo": "daniela@ejemplo.com",
@@ -290,7 +290,7 @@ GET /api/v1/perfil
 {
   "ok": true,
   "datos": {
-    "id": "7a102d14-add1-49a6-8972-34fbefe56330",
+    "id": "87f9e082-843b-40ea-8bc4-4df30f588115",
     "nombre": "Ingri Daniela",
     "apellido": "Rojas Sánchez",
     "correo": "daniela@ejemplo.com",
@@ -350,7 +350,7 @@ PUT /api/v1/perfil
 {
   "ok": true,
   "datos": {
-    "id": "7a102d14-add1-49a6-8972-34fbefe56330",
+    "id": "87f9e082-843b-40ea-8bc4-4df30f588115",
     "nombre": "Ingri Daniela",
     "apellido": "Rojas Sánchez",
     "correo": "daniela@ejemplo.com",
@@ -486,7 +486,7 @@ GET /api/v1/registros-actividad?desde=2026-11-01&hasta=2026-11-04
   "ok": true,
   "datos": [
     {
-      "id": "96bb2146-8079-4ddf-9717-e81aba32a407",
+      "id": "74415edb-f039-44b0-9c79-d77900908238",
       "actividadId": 1,
       "actividad": "Caminata",
       "fecha": "2026-11-04",
@@ -538,7 +538,7 @@ POST /api/v1/registros-actividad
 {
   "ok": true,
   "datos": {
-    "id": "96bb2146-8079-4ddf-9717-e81aba32a407",
+    "id": "74415edb-f039-44b0-9c79-d77900908238",
     "actividadId": 1,
     "actividad": "Caminata",
     "fecha": "2026-11-04",
@@ -567,7 +567,7 @@ POST /api/v1/registros-actividad
 **Ejemplo**
 
 ```http
-DELETE /api/v1/registros-actividad/96bb2146-8079-4ddf-9717-e81aba32a407
+DELETE /api/v1/registros-actividad/74415edb-f039-44b0-9c79-d77900908238
 ```
 
 ```json
@@ -617,12 +617,12 @@ GET /api/v1/hidratacion
     "porcentaje": 50,
     "registros": [
       {
-        "id": "84aec239-8da5-458f-9f96-d7b4fa0d2810",
+        "id": "1bad60d8-959c-4af5-9d6d-bd6c211e3ff0",
         "fecha": "2026-11-04",
         "cantidadMl": 500
       },
       {
-        "id": "8dc3cbed-d6de-44c9-89b7-fdd37bd2c689",
+        "id": "5bacc02e-6bde-4fdc-b62a-fb42e0c806b5",
         "fecha": "2026-11-04",
         "cantidadMl": 500
       }
@@ -674,12 +674,12 @@ POST /api/v1/hidratacion
     "porcentaje": 50,
     "registros": [
       {
-        "id": "84aec239-8da5-458f-9f96-d7b4fa0d2810",
+        "id": "1bad60d8-959c-4af5-9d6d-bd6c211e3ff0",
         "fecha": "2026-11-04",
         "cantidadMl": 500
       },
       {
-        "id": "8dc3cbed-d6de-44c9-89b7-fdd37bd2c689",
+        "id": "5bacc02e-6bde-4fdc-b62a-fb42e0c806b5",
         "fecha": "2026-11-04",
         "cantidadMl": 500
       }
@@ -726,7 +726,7 @@ DELETE /api/v1/hidratacion/ultimo
     "porcentaje": 25,
     "registros": [
       {
-        "id": "84aec239-8da5-458f-9f96-d7b4fa0d2810",
+        "id": "1bad60d8-959c-4af5-9d6d-bd6c211e3ff0",
         "fecha": "2026-11-04",
         "cantidadMl": 500
       }
@@ -772,7 +772,7 @@ GET /api/v1/comidas
   "ok": true,
   "datos": [
     {
-      "id": "4cf3baa7-abda-42eb-ae22-966ee8936bac",
+      "id": "73827c78-b436-4aad-a1a3-fd3c48421e64",
       "tipo": "almuerzo",
       "descripcion": "Arroz con pollo y ensalada",
       "calorias": 600,
@@ -822,7 +822,7 @@ POST /api/v1/comidas
 {
   "ok": true,
   "datos": {
-    "id": "4cf3baa7-abda-42eb-ae22-966ee8936bac",
+    "id": "73827c78-b436-4aad-a1a3-fd3c48421e64",
     "tipo": "almuerzo",
     "descripcion": "Arroz con pollo y ensalada",
     "calorias": 650,
@@ -862,7 +862,7 @@ Solo cambian los campos enviados.
 **Ejemplo**
 
 ```http
-PUT /api/v1/comidas/4cf3baa7-abda-42eb-ae22-966ee8936bac
+PUT /api/v1/comidas/73827c78-b436-4aad-a1a3-fd3c48421e64
 
 {
   "calorias": 600
@@ -874,7 +874,7 @@ PUT /api/v1/comidas/4cf3baa7-abda-42eb-ae22-966ee8936bac
 {
   "ok": true,
   "datos": {
-    "id": "4cf3baa7-abda-42eb-ae22-966ee8936bac",
+    "id": "73827c78-b436-4aad-a1a3-fd3c48421e64",
     "tipo": "almuerzo",
     "descripcion": "Arroz con pollo y ensalada",
     "calorias": 600,
@@ -902,7 +902,7 @@ PUT /api/v1/comidas/4cf3baa7-abda-42eb-ae22-966ee8936bac
 **Ejemplo**
 
 ```http
-DELETE /api/v1/comidas/4cf3baa7-abda-42eb-ae22-966ee8936bac
+DELETE /api/v1/comidas/73827c78-b436-4aad-a1a3-fd3c48421e64
 ```
 
 ```json
@@ -947,7 +947,7 @@ GET /api/v1/sueno
   "ok": true,
   "datos": [
     {
-      "id": "26e4e01f-79f8-4f10-908b-20f3bdb49031",
+      "id": "5a11a8fa-0ec7-4202-99ab-9538eee333b0",
       "fecha": "2026-11-04",
       "horas": 7.5,
       "calidad": "buena"
@@ -995,7 +995,7 @@ POST /api/v1/sueno
 {
   "ok": true,
   "datos": {
-    "id": "26e4e01f-79f8-4f10-908b-20f3bdb49031",
+    "id": "5a11a8fa-0ec7-4202-99ab-9538eee333b0",
     "fecha": "2026-11-04",
     "horas": 7.5,
     "calidad": "buena"
@@ -1022,7 +1022,7 @@ POST /api/v1/sueno
 **Ejemplo**
 
 ```http
-DELETE /api/v1/sueno/26e4e01f-79f8-4f10-908b-20f3bdb49031
+DELETE /api/v1/sueno/5a11a8fa-0ec7-4202-99ab-9538eee333b0
 ```
 
 ```json
@@ -1066,7 +1066,7 @@ GET /api/v1/habitos
   "ok": true,
   "datos": [
     {
-      "id": "1597811a-81b8-4fa3-a70f-7dd3e65292fa",
+      "id": "ec4b094e-8dff-442b-96a8-812d7dabc33e",
       "descripcion": null,
       "unidad": "minutos",
       "nombre": "Meditar",
@@ -1137,7 +1137,7 @@ POST /api/v1/habitos
 {
   "ok": true,
   "datos": {
-    "id": "1597811a-81b8-4fa3-a70f-7dd3e65292fa",
+    "id": "ec4b094e-8dff-442b-96a8-812d7dabc33e",
     "descripcion": null,
     "unidad": "minutos",
     "nombre": "Meditar",
@@ -1177,7 +1177,7 @@ POST /api/v1/habitos
 **Ejemplo**
 
 ```http
-GET /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
+GET /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e
 ```
 
 ```json
@@ -1185,7 +1185,7 @@ GET /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
 {
   "ok": true,
   "datos": {
-    "id": "1597811a-81b8-4fa3-a70f-7dd3e65292fa",
+    "id": "ec4b094e-8dff-442b-96a8-812d7dabc33e",
     "descripcion": null,
     "unidad": "minutos",
     "nombre": "Meditar",
@@ -1245,7 +1245,7 @@ Solo cambian los campos enviados; el historial de registros se conserva.
 **Ejemplo**
 
 ```http
-PUT /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
+PUT /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e
 
 {
   "meta": 15
@@ -1257,7 +1257,7 @@ PUT /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
 {
   "ok": true,
   "datos": {
-    "id": "1597811a-81b8-4fa3-a70f-7dd3e65292fa",
+    "id": "ec4b094e-8dff-442b-96a8-812d7dabc33e",
     "descripcion": null,
     "unidad": "minutos",
     "nombre": "Meditar",
@@ -1297,7 +1297,7 @@ PUT /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
 **Ejemplo**
 
 ```http
-DELETE /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
+DELETE /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e
 ```
 
 ```json
@@ -1334,7 +1334,7 @@ Suma al avance del día y devuelve el progreso del periodo y la racha. En los h�
 **Ejemplo**
 
 ```http
-POST /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa/registros
+POST /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e/registros
 
 {
   "cantidad": 15
@@ -1346,7 +1346,7 @@ POST /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa/registros
 {
   "ok": true,
   "datos": {
-    "id": "1597811a-81b8-4fa3-a70f-7dd3e65292fa",
+    "id": "ec4b094e-8dff-442b-96a8-812d7dabc33e",
     "descripcion": null,
     "unidad": "minutos",
     "nombre": "Meditar",
