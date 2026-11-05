@@ -69,14 +69,14 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;7a102d14-add1-49a6-8972-34fbefe56330&quot;,
+    &quot;id&quot;: &quot;87f9e082-843b-40ea-8bc4-4df30f588115&quot;,
     &quot;nombre&quot;: &quot;Ingri Daniela&quot;,
     &quot;apellido&quot;: &quot;Rojas Sánchez&quot;,
     &quot;correo&quot;: &quot;daniela@ejemplo.com&quot;,
     &quot;fechaRegistro&quot;: &quot;2026-11-04T17:00:00.000Z&quot;
   }
 }</pre></div></details><details id="post-auth-login"><summary><span class="m POST">POST</span> <code>/auth/login</code> <span class="r">Iniciar sesión</span></summary><div class="c">
-<p class="a">Público · HU02 / RF02</p><p>Devuelve el token que debe enviarse en los demás servicios con la cabecera `Authorization: Bearer &lt;token&gt;`. Vence a las 2 horas. Tras 5 intentos fallidos se bloquea el acceso por 15 minutos.</p>
+<p class="a">Público · HU02 / RF02</p><p>Devuelve el token que debe enviarse en los demás servicios con la cabecera <code>Authorization: Bearer &lt;token&gt;</code>. Vence a las 2 horas. Tras 5 intentos fallidos se bloquea el acceso por 15 minutos.</p>
 <h4>Cuerpo</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>correo</code></td><td>texto</td><td>Sí</td><td>Correo de la cuenta</td></tr><tr><td><code>contrasena</code></td><td>texto</td><td>Sí</td><td>Contraseña de la cuenta</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Sesión iniciada</li><li><b>401</b> Correo o contraseña incorrectos (mensaje genérico)</li><li><b>429</b> Demasiados intentos fallidos</li></ul>
 <h4>Ejemplo</h4><pre>POST /api/v1/auth/login
@@ -93,7 +93,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
     &quot;expiraEn&quot;: 7200,
     &quot;tipo&quot;: &quot;Bearer&quot;,
     &quot;usuario&quot;: {
-      &quot;id&quot;: &quot;7a102d14-add1-49a6-8972-34fbefe56330&quot;,
+      &quot;id&quot;: &quot;87f9e082-843b-40ea-8bc4-4df30f588115&quot;,
       &quot;nombre&quot;: &quot;Ingri Daniela&quot;,
       &quot;apellido&quot;: &quot;Rojas Sánchez&quot;,
       &quot;correo&quot;: &quot;daniela@ejemplo.com&quot;,
@@ -113,7 +113,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;7a102d14-add1-49a6-8972-34fbefe56330&quot;,
+    &quot;id&quot;: &quot;87f9e082-843b-40ea-8bc4-4df30f588115&quot;,
     &quot;nombre&quot;: &quot;Ingri Daniela&quot;,
     &quot;apellido&quot;: &quot;Rojas Sánchez&quot;,
     &quot;correo&quot;: &quot;daniela@ejemplo.com&quot;,
@@ -126,7 +126,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
     &quot;clasificacionImc&quot;: &quot;Peso saludable&quot;
   }
 }</pre></div></details><details id="put-perfil"><summary><span class="m PUT">PUT</span> <code>/perfil</code> <span class="r">Actualizar el perfil</span></summary><div class="c">
-<p class="a">Requiere token · HU06 / RF03, RF08</p><p>Solo cambian los campos enviados. Con `null` se borra fechaNacimiento, pesoKg, alturaCm u objetivo.</p>
+<p class="a">Requiere token · HU06 / RF03, RF08</p><p>Solo cambian los campos enviados. Con <code>null</code> se borra fechaNacimiento, pesoKg, alturaCm u objetivo.</p>
 <h4>Cuerpo</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>nombre</code></td><td>texto</td><td>No</td><td>Máximo 80 caracteres</td></tr><tr><td><code>apellido</code></td><td>texto</td><td>No</td><td>Máximo 80 caracteres</td></tr><tr><td><code>fechaNacimiento</code></td><td>fecha</td><td>No</td><td>Edad mínima: 13 años</td></tr><tr><td><code>pesoKg</code></td><td>número</td><td>No</td><td>De 20 a 400</td></tr><tr><td><code>alturaCm</code></td><td>número</td><td>No</td><td>De 50 a 250</td></tr><tr><td><code>objetivo</code></td><td>texto</td><td>No</td><td>Máximo 120 caracteres</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Perfil actualizado</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li></ul>
 <h4>Ejemplo</h4><pre>PUT /api/v1/perfil
@@ -141,7 +141,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;7a102d14-add1-49a6-8972-34fbefe56330&quot;,
+    &quot;id&quot;: &quot;87f9e082-843b-40ea-8bc4-4df30f588115&quot;,
     &quot;nombre&quot;: &quot;Ingri Daniela&quot;,
     &quot;apellido&quot;: &quot;Rojas Sánchez&quot;,
     &quot;correo&quot;: &quot;daniela@ejemplo.com&quot;,
@@ -229,7 +229,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
   &quot;ok&quot;: true,
   &quot;datos&quot;: [
     {
-      &quot;id&quot;: &quot;96bb2146-8079-4ddf-9717-e81aba32a407&quot;,
+      &quot;id&quot;: &quot;74415edb-f039-44b0-9c79-d77900908238&quot;,
       &quot;actividadId&quot;: 1,
       &quot;actividad&quot;: &quot;Caminata&quot;,
       &quot;fecha&quot;: &quot;2026-11-04&quot;,
@@ -252,7 +252,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;96bb2146-8079-4ddf-9717-e81aba32a407&quot;,
+    &quot;id&quot;: &quot;74415edb-f039-44b0-9c79-d77900908238&quot;,
     &quot;actividadId&quot;: 1,
     &quot;actividad&quot;: &quot;Caminata&quot;,
     &quot;fecha&quot;: &quot;2026-11-04&quot;,
@@ -263,7 +263,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token · HU05 / RF05</p>
 
 <h4>Respuestas</h4><ul><li><b>204</b> Registro eliminado</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>DELETE /api/v1/registros-actividad/96bb2146-8079-4ddf-9717-e81aba32a407</pre><pre>204 No Content</pre></div></details></section><section><h2>Hidratación</h2><p>Registro de agua frente a la meta diaria de 2000 ml (8 vasos de 250 ml).</p><details id="get-hidratacion"><summary><span class="m GET">GET</span> <code>/hidratacion</code> <span class="r">Consultar el agua de un día</span></summary><div class="c">
+<h4>Ejemplo</h4><pre>DELETE /api/v1/registros-actividad/74415edb-f039-44b0-9c79-d77900908238</pre><pre>204 No Content</pre></div></details></section><section><h2>Hidratación</h2><p>Registro de agua frente a la meta diaria de 2000 ml (8 vasos de 250 ml).</p><details id="get-hidratacion"><summary><span class="m GET">GET</span> <code>/hidratacion</code> <span class="r">Consultar el agua de un día</span></summary><div class="c">
 <p class="a">Requiere token · HU04 / RF04</p>
 <h4>Parámetros de consulta</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>fecha</code></td><td>fecha</td><td>No</td><td>AAAA-MM-DD. Por defecto, hoy</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Registros, total, vasos y porcentaje de la meta</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li></ul>
@@ -279,12 +279,12 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
     &quot;porcentaje&quot;: 50,
     &quot;registros&quot;: [
       {
-        &quot;id&quot;: &quot;84aec239-8da5-458f-9f96-d7b4fa0d2810&quot;,
+        &quot;id&quot;: &quot;1bad60d8-959c-4af5-9d6d-bd6c211e3ff0&quot;,
         &quot;fecha&quot;: &quot;2026-11-04&quot;,
         &quot;cantidadMl&quot;: 500
       },
       {
-        &quot;id&quot;: &quot;8dc3cbed-d6de-44c9-89b7-fdd37bd2c689&quot;,
+        &quot;id&quot;: &quot;5bacc02e-6bde-4fdc-b62a-fb42e0c806b5&quot;,
         &quot;fecha&quot;: &quot;2026-11-04&quot;,
         &quot;cantidadMl&quot;: 500
       }
@@ -310,12 +310,12 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
     &quot;porcentaje&quot;: 50,
     &quot;registros&quot;: [
       {
-        &quot;id&quot;: &quot;84aec239-8da5-458f-9f96-d7b4fa0d2810&quot;,
+        &quot;id&quot;: &quot;1bad60d8-959c-4af5-9d6d-bd6c211e3ff0&quot;,
         &quot;fecha&quot;: &quot;2026-11-04&quot;,
         &quot;cantidadMl&quot;: 500
       },
       {
-        &quot;id&quot;: &quot;8dc3cbed-d6de-44c9-89b7-fdd37bd2c689&quot;,
+        &quot;id&quot;: &quot;5bacc02e-6bde-4fdc-b62a-fb42e0c806b5&quot;,
         &quot;fecha&quot;: &quot;2026-11-04&quot;,
         &quot;cantidadMl&quot;: 500
       }
@@ -337,7 +337,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
     &quot;porcentaje&quot;: 25,
     &quot;registros&quot;: [
       {
-        &quot;id&quot;: &quot;84aec239-8da5-458f-9f96-d7b4fa0d2810&quot;,
+        &quot;id&quot;: &quot;1bad60d8-959c-4af5-9d6d-bd6c211e3ff0&quot;,
         &quot;fecha&quot;: &quot;2026-11-04&quot;,
         &quot;cantidadMl&quot;: 500
       }
@@ -353,7 +353,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
   &quot;ok&quot;: true,
   &quot;datos&quot;: [
     {
-      &quot;id&quot;: &quot;4cf3baa7-abda-42eb-ae22-966ee8936bac&quot;,
+      &quot;id&quot;: &quot;73827c78-b436-4aad-a1a3-fd3c48421e64&quot;,
       &quot;tipo&quot;: &quot;almuerzo&quot;,
       &quot;descripcion&quot;: &quot;Arroz con pollo y ensalada&quot;,
       &quot;calorias&quot;: 600,
@@ -375,7 +375,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;4cf3baa7-abda-42eb-ae22-966ee8936bac&quot;,
+    &quot;id&quot;: &quot;73827c78-b436-4aad-a1a3-fd3c48421e64&quot;,
     &quot;tipo&quot;: &quot;almuerzo&quot;,
     &quot;descripcion&quot;: &quot;Arroz con pollo y ensalada&quot;,
     &quot;calorias&quot;: 650,
@@ -385,7 +385,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token</p><p>Solo cambian los campos enviados.</p>
 <h4>Cuerpo</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>tipo</code></td><td>texto</td><td>No</td><td>desayuno, almuerzo, cena o merienda</td></tr><tr><td><code>descripcion</code></td><td>texto</td><td>No</td><td>Máximo 120 caracteres</td></tr><tr><td><code>calorias</code></td><td>número</td><td>No</td><td>De 0 a 5000</td></tr><tr><td><code>fecha</code></td><td>fecha</td><td>No</td><td>AAAA-MM-DD, no futura. Por defecto, hoy</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Comida actualizada</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>PUT /api/v1/comidas/4cf3baa7-abda-42eb-ae22-966ee8936bac
+<h4>Ejemplo</h4><pre>PUT /api/v1/comidas/73827c78-b436-4aad-a1a3-fd3c48421e64
 
 {
   &quot;calorias&quot;: 600
@@ -394,7 +394,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;4cf3baa7-abda-42eb-ae22-966ee8936bac&quot;,
+    &quot;id&quot;: &quot;73827c78-b436-4aad-a1a3-fd3c48421e64&quot;,
     &quot;tipo&quot;: &quot;almuerzo&quot;,
     &quot;descripcion&quot;: &quot;Arroz con pollo y ensalada&quot;,
     &quot;calorias&quot;: 600,
@@ -404,7 +404,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token</p>
 
 <h4>Respuestas</h4><ul><li><b>204</b> Comida eliminada</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>DELETE /api/v1/comidas/4cf3baa7-abda-42eb-ae22-966ee8936bac</pre><pre>204 No Content</pre></div></details></section><section><h2>Sueño</h2><p>Horas y calidad del sueño de cada día.</p><details id="get-sueno"><summary><span class="m GET">GET</span> <code>/sueno</code> <span class="r">Consultar el sueño</span></summary><div class="c">
+<h4>Ejemplo</h4><pre>DELETE /api/v1/comidas/73827c78-b436-4aad-a1a3-fd3c48421e64</pre><pre>204 No Content</pre></div></details></section><section><h2>Sueño</h2><p>Horas y calidad del sueño de cada día.</p><details id="get-sueno"><summary><span class="m GET">GET</span> <code>/sueno</code> <span class="r">Consultar el sueño</span></summary><div class="c">
 <p class="a">Requiere token</p>
 <h4>Parámetros de consulta</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>desde</code></td><td>fecha</td><td>No</td><td>Fecha inicial AAAA-MM-DD</td></tr><tr><td><code>hasta</code></td><td>fecha</td><td>No</td><td>Fecha final AAAA-MM-DD</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Registros, del más reciente al más antiguo</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li></ul>
@@ -414,7 +414,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
   &quot;ok&quot;: true,
   &quot;datos&quot;: [
     {
-      &quot;id&quot;: &quot;26e4e01f-79f8-4f10-908b-20f3bdb49031&quot;,
+      &quot;id&quot;: &quot;5a11a8fa-0ec7-4202-99ab-9538eee333b0&quot;,
       &quot;fecha&quot;: &quot;2026-11-04&quot;,
       &quot;horas&quot;: 7.5,
       &quot;calidad&quot;: &quot;buena&quot;
@@ -434,7 +434,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;26e4e01f-79f8-4f10-908b-20f3bdb49031&quot;,
+    &quot;id&quot;: &quot;5a11a8fa-0ec7-4202-99ab-9538eee333b0&quot;,
     &quot;fecha&quot;: &quot;2026-11-04&quot;,
     &quot;horas&quot;: 7.5,
     &quot;calidad&quot;: &quot;buena&quot;
@@ -443,7 +443,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token</p>
 
 <h4>Respuestas</h4><ul><li><b>204</b> Registro eliminado</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>DELETE /api/v1/sueno/26e4e01f-79f8-4f10-908b-20f3bdb49031</pre><pre>204 No Content</pre></div></details></section><section><h2>Hábitos</h2><p>Hábitos saludables con cumplimiento, progreso y racha.</p><details id="get-habitos"><summary><span class="m GET">GET</span> <code>/habitos</code> <span class="r">Consultar los hábitos</span></summary><div class="c">
+<h4>Ejemplo</h4><pre>DELETE /api/v1/sueno/5a11a8fa-0ec7-4202-99ab-9538eee333b0</pre><pre>204 No Content</pre></div></details></section><section><h2>Hábitos</h2><p>Hábitos saludables con cumplimiento, progreso y racha.</p><details id="get-habitos"><summary><span class="m GET">GET</span> <code>/habitos</code> <span class="r">Consultar los hábitos</span></summary><div class="c">
 <p class="a">Requiere token · HU09</p>
 <h4>Parámetros de consulta</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>categoria</code></td><td>texto</td><td>No</td><td>hidratacion, actividad_fisica, sueno, alimentacion o bienestar</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Hábitos con su resumen</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li></ul>
@@ -453,7 +453,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
   &quot;ok&quot;: true,
   &quot;datos&quot;: [
     {
-      &quot;id&quot;: &quot;1597811a-81b8-4fa3-a70f-7dd3e65292fa&quot;,
+      &quot;id&quot;: &quot;ec4b094e-8dff-442b-96a8-812d7dabc33e&quot;,
       &quot;descripcion&quot;: null,
       &quot;unidad&quot;: &quot;minutos&quot;,
       &quot;nombre&quot;: &quot;Meditar&quot;,
@@ -494,7 +494,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;1597811a-81b8-4fa3-a70f-7dd3e65292fa&quot;,
+    &quot;id&quot;: &quot;ec4b094e-8dff-442b-96a8-812d7dabc33e&quot;,
     &quot;descripcion&quot;: null,
     &quot;unidad&quot;: &quot;minutos&quot;,
     &quot;nombre&quot;: &quot;Meditar&quot;,
@@ -516,12 +516,12 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token · HU09, HU13</p>
 
 <h4>Respuestas</h4><ul><li><b>200</b> Hábito con su progreso y racha</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>GET /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa</pre><pre>200 OK
+<h4>Ejemplo</h4><pre>GET /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e</pre><pre>200 OK
 
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;1597811a-81b8-4fa3-a70f-7dd3e65292fa&quot;,
+    &quot;id&quot;: &quot;ec4b094e-8dff-442b-96a8-812d7dabc33e&quot;,
     &quot;descripcion&quot;: null,
     &quot;unidad&quot;: &quot;minutos&quot;,
     &quot;nombre&quot;: &quot;Meditar&quot;,
@@ -548,7 +548,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token · HU10</p><p>Solo cambian los campos enviados; el historial de registros se conserva.</p>
 <h4>Cuerpo</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>nombre</code></td><td>texto</td><td>No</td><td>Máximo 60 caracteres</td></tr><tr><td><code>categoria</code></td><td>texto</td><td>No</td><td>Una categoría del catálogo</td></tr><tr><td><code>frecuencia</code></td><td>texto</td><td>No</td><td>diaria o semanal</td></tr><tr><td><code>meta</code></td><td>número</td><td>No</td><td>Mayor que cero</td></tr><tr><td><code>descripcion</code></td><td>texto</td><td>No</td><td>Máximo 200 caracteres</td></tr><tr><td><code>unidad</code></td><td>texto</td><td>No</td><td>Máximo 20 caracteres</td></tr><tr><td><code>activo</code></td><td>booleano</td><td>No</td><td>false lo excluye del panel diario</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>200</b> Hábito actualizado</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>PUT /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa
+<h4>Ejemplo</h4><pre>PUT /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e
 
 {
   &quot;meta&quot;: 15
@@ -557,7 +557,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;1597811a-81b8-4fa3-a70f-7dd3e65292fa&quot;,
+    &quot;id&quot;: &quot;ec4b094e-8dff-442b-96a8-812d7dabc33e&quot;,
     &quot;descripcion&quot;: null,
     &quot;unidad&quot;: &quot;minutos&quot;,
     &quot;nombre&quot;: &quot;Meditar&quot;,
@@ -579,11 +579,11 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 <p class="a">Requiere token · HU11</p>
 
 <h4>Respuestas</h4><ul><li><b>204</b> Hábito eliminado</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>DELETE /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa</pre><pre>204 No Content</pre></div></details><details id="post-habitos-id-registros"><summary><span class="m POST">POST</span> <code>/habitos/:id/registros</code> <span class="r">Registrar el cumplimiento</span></summary><div class="c">
+<h4>Ejemplo</h4><pre>DELETE /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e</pre><pre>204 No Content</pre></div></details><details id="post-habitos-id-registros"><summary><span class="m POST">POST</span> <code>/habitos/:id/registros</code> <span class="r">Registrar el cumplimiento</span></summary><div class="c">
 <p class="a">Requiere token · HU12, HU13</p><p>Suma al avance del día y devuelve el progreso del periodo y la racha. En los hábitos semanales el progreso acumula de lunes a domingo y la racha cuenta semanas.</p>
 <h4>Cuerpo</h4><div class="t"><table><tr><th>Campo</th><th>Tipo</th><th>Obligatorio</th><th>Descripción</th></tr><tr><td><code>cantidad</code></td><td>número</td><td>Sí</td><td>Mayor que cero</td></tr><tr><td><code>fecha</code></td><td>fecha</td><td>No</td><td>AAAA-MM-DD, no futura. Por defecto, hoy</td></tr></table></div>
 <h4>Respuestas</h4><ul><li><b>201</b> Cumplimiento registrado</li><li><b>400</b> Datos no válidos</li><li><b>401</b> Falta el token o no es válido</li><li><b>404</b> No existe o es de otro usuario</li></ul>
-<h4>Ejemplo</h4><pre>POST /api/v1/habitos/1597811a-81b8-4fa3-a70f-7dd3e65292fa/registros
+<h4>Ejemplo</h4><pre>POST /api/v1/habitos/ec4b094e-8dff-442b-96a8-812d7dabc33e/registros
 
 {
   &quot;cantidad&quot;: 15
@@ -592,7 +592,7 @@ details{background:var(--s);border:1px solid var(--b);border-radius:10px;margin:
 {
   &quot;ok&quot;: true,
   &quot;datos&quot;: {
-    &quot;id&quot;: &quot;1597811a-81b8-4fa3-a70f-7dd3e65292fa&quot;,
+    &quot;id&quot;: &quot;ec4b094e-8dff-442b-96a8-812d7dabc33e&quot;,
     &quot;descripcion&quot;: null,
     &quot;unidad&quot;: &quot;minutos&quot;,
     &quot;nombre&quot;: &quot;Meditar&quot;,

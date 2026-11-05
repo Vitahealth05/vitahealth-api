@@ -196,7 +196,7 @@ function generarHtml({ ejemplos }) {
     const tarjetas = SERVICIOS.filter((s) => s.modulo === modulo).map((s) => {
       const e = ejemplos[clave(s)];
       return `<details id="${ancla(s)}"><summary><span class="m ${s.metodo}">${s.metodo}</span> <code>${esc(s.ruta)}</code> <span class="r">${esc(s.resumen)}</span></summary><div class="c">
-<p class="a">${s.publica ? 'Público' : 'Requiere token'}${s.hu ? ` · ${esc(s.hu)}` : ''}</p>${s.descripcion ? `<p>${esc(s.descripcion)}</p>` : ''}
+<p class="a">${s.publica ? 'Público' : 'Requiere token'}${s.hu ? ` · ${esc(s.hu)}` : ''}</p>${s.descripcion ? `<p>${esc(s.descripcion).replace(/`([^`]+)`/g, '<code>$1</code>')}</p>` : ''}
 ${s.consulta ? tablaHtml('Parámetros de consulta', s.consulta) : ''}${s.cuerpo ? tablaHtml('Cuerpo', s.cuerpo) : ''}
 <h4>Respuestas</h4><ul>${Object.entries(s.respuestas).map(([k, v]) => `<li><b>${k}</b> ${esc(v)}</li>`).join('')}</ul>
 <h4>Ejemplo</h4><pre>${esc(`${s.metodo} ${e.ruta}`)}${e.cuerpo ? `\n\n${esc(json(e.cuerpo))}` : ''}</pre><pre>${e.respuesta.estado} ${CODIGOS[e.respuesta.estado]}${e.respuesta.cuerpo ? `\n\n${esc(json(e.respuesta.cuerpo))}` : ''}</pre></div></details>`;
